@@ -47,3 +47,11 @@ kubectl get deployment synergychat-web -o yaml > web-deployment.yaml
 
 kubectl apply -f
 
+# k8s configmaps
+kubectl apply -f api-configmap.yaml
+
+kubectl get configmaps
+
+kubectl delete deployment synergychat-web
+
+kubectl port-forward synergychat-api-865c8594b9-mtzfj 8080:8080
