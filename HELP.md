@@ -64,3 +64,25 @@ kubectl port-forward service/web-service 8080:80
 
 kubectl get svc
 
+# k8s gateway
+
+
+kubectl apply --server-side -f https://github.com/envoyproxy/gateway/releases/download/v1.5.1/install.yaml
+
+kubectl apply -f app-gatewayclass.yaml
+
+kubectl apply -f  app-gateway.yaml
+
+kubectl apply -f web-httproute.yaml
+
+kubectl apply -f api-httproute.yaml
+
+kubectl get pods -n envoy-gateway-system
+
+vim /etc/hosts
+192.168.49.2        synchat.internal
+192.168.49.2        synchatapi.internal
+
+ping synchat.internal
+
+minikube tunnel --bind-address="127.0.0.1" -c
