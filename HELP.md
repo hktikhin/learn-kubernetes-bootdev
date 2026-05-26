@@ -80,9 +80,15 @@ kubectl apply -f api-httproute.yaml
 kubectl get pods -n envoy-gateway-system
 
 vim /etc/hosts
-192.168.49.2        synchat.internal
-192.168.49.2        synchatapi.internal
+127.0.0.1        synchat.internal
+127.0.0.1        synchatapi.internal
 
 ping synchat.internal
 
 minikube tunnel --bind-address="127.0.0.1" -c
+
+kubectl apply -f web-configmap.yaml
+
+kubectl port-forward synergychat-api-865c8594b9-mtzfj 8081:8080
+
+kubectl delete pod synergychat-web-6866dc4bc7-f2mbq
