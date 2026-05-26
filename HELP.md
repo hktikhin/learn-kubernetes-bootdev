@@ -92,3 +92,6 @@ kubectl apply -f web-configmap.yaml
 kubectl port-forward synergychat-api-865c8594b9-mtzfj 8081:8080
 
 kubectl delete pod synergychat-web-6866dc4bc7-f2mbq
+
+# k8s volume
+
