@@ -94,4 +94,26 @@ kubectl port-forward synergychat-api-865c8594b9-mtzfj 8081:8080
 kubectl delete pod synergychat-web-6866dc4bc7-f2mbq
 
 # k8s volume
+kubectl get pvc
+kubectl get pv
 
+# k8s namespaces
+kubectl get namespaces
+
+kubectl create ns crawler
+
+kubectl get ns
+
+kubectl -n crawler get pods
+kubectl -n crawler get svc
+kubectl -n crawler get configmaps
+
+kubectl rollout restart deployment synergychat-api
+
+http://<service-name>.<namespace>.svc.cluster.local
+
+# Scaling 
+
+minikube addons enable metrics-server
+
+kubectl -n kube-system get pod
