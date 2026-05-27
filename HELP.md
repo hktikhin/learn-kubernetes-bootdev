@@ -117,3 +117,7 @@ http://<service-name>.<namespace>.svc.cluster.local
 minikube addons enable metrics-server
 
 kubectl -n kube-system get pod
+
+kubectl apply -f testcpu-hpa.yaml
+
+kubectl get hpa
